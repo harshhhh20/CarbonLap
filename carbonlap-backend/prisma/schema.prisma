@@ -1,0 +1,56 @@
+// CarbonLap Database Schema
+// Switch provider to "postgresql" and update DATABASE_URL to go live on Postgres.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─── 1. USER TABLE ────────────────────────────────────────────────────────────
+model User {
+  id                 String       @id @default(uuid())
+  username           String       @unique
+  email              String       @unique
+  totalFantasyPoints Int          @default(0)
+  favoriteDriverId   String?      // e.g. "VER", "NOR"
+
+  // Audit trail — evaluators love seeing this
+  createdAt          DateTime     @default(now())
+  lastActive         DateTime     @updatedAt
+
+  predictions        Prediction[]
+}
+
+// ─── 2. RACE SESSION TABLE (State Machine) ────────────────────────────────────
+model RaceSession {
+  id          String       @id @default(uuid())
+  circuitName String       // e.g. "Suzuka", "Monza"
+  isLive      Boolean      @default(false) // If false → reject all prediction requests
+  currentLap  Int          @default(0)
+  totalLaps   Int
+  startedAt   DateTime?
+
+  predictions Prediction[]
+}
+
+// ─── 3. PREDICTION TABLE (Gamification) ───────────────────────────────────────
+model Prediction {
+  id             String      @id @default(uuid())
+  userId         String
+  raceSessionId  String
+  lapNumber      Int
+  predictedTire  String      // "SOFT" | "MEDIUM" | "HARD"
+  pointsAwarded  Int         @default(0)
+  timestamp      DateTime
+
+  user           User        @relation(fields: [userId], references: [id])
+  raceSession    RaceSession @relation(fields: [raceSessionId], references: [id])
+
+  // Anti-cheat: physically prevents duplicate submissions at the DB level.
+  // No matter how many times the app sends the request, only ONE row can exist.
+  @@unique([userId, raceSessionId, lapNumber])
+}

@@ -1,0 +1,51 @@
+{
+  "circuit": "Monza",
+  "circuitFullName": "Autodromo Nazionale Monza",
+  "totalLaps": 53,
+  "description": "Synthetic telemetry log — Monza lap profile. Loops infinitely during replay.",
+
+  "cars": [
+    { "carNumber": 1,  "driverCode": "NOR", "team": "McLaren",           "performanceFactor": 0.98 },
+    { "carNumber": 81, "driverCode": "PIA", "team": "McLaren",           "performanceFactor": 0.97 },
+    { "carNumber": 63, "driverCode": "RUS", "team": "Mercedes",          "performanceFactor": 0.96 },
+    { "carNumber": 12, "driverCode": "ANT", "team": "Mercedes",          "performanceFactor": 0.94 },
+    { "carNumber": 16, "driverCode": "LEC", "team": "Ferrari",           "performanceFactor": 0.97 },
+    { "carNumber": 44, "driverCode": "HAM", "team": "Ferrari",           "performanceFactor": 0.96 },
+    { "carNumber": 3,  "driverCode": "VER", "team": "Red Bull Racing",   "performanceFactor": 0.97 },
+    { "carNumber": 6,  "driverCode": "HAD", "team": "Red Bull Racing",   "performanceFactor": 0.92 },
+    { "carNumber": 23, "driverCode": "ALB", "team": "Williams",          "performanceFactor": 0.91 },
+    { "carNumber": 55, "driverCode": "SAI", "team": "Williams",          "performanceFactor": 0.92 },
+    { "carNumber": 30, "driverCode": "LAW", "team": "Racing Bulls",      "performanceFactor": 0.90 },
+    { "carNumber": 41, "driverCode": "LIN", "team": "Racing Bulls",      "performanceFactor": 0.88 },
+    { "carNumber": 14, "driverCode": "ALO", "team": "Aston Martin",      "performanceFactor": 0.93 },
+    { "carNumber": 18, "driverCode": "STR", "team": "Aston Martin",      "performanceFactor": 0.91 },
+    { "carNumber": 27, "driverCode": "HUL", "team": "Audi",              "performanceFactor": 0.89 },
+    { "carNumber": 5,  "driverCode": "BOR", "team": "Audi",              "performanceFactor": 0.87 },
+    { "carNumber": 31, "driverCode": "OCO", "team": "Haas",              "performanceFactor": 0.88 },
+    { "carNumber": 87, "driverCode": "BEA", "team": "Haas",              "performanceFactor": 0.87 },
+    { "carNumber": 10, "driverCode": "GAS", "team": "Alpine",            "performanceFactor": 0.89 },
+    { "carNumber": 43, "driverCode": "COL", "team": "Alpine",            "performanceFactor": 0.88 },
+    { "carNumber": 11, "driverCode": "PER", "team": "Cadillac",          "performanceFactor": 0.86 },
+    { "carNumber": 77, "driverCode": "BOT", "team": "Cadillac",          "performanceFactor": 0.85 }
+  ],
+
+  "lapProfile": [
+    { "section": "Pit Straight",          "durationTicks": 16, "rpm": 14800, "throttle": 98, "speed": 335, "gear": 8 },
+    { "section": "Prima Variante Brake",  "durationTicks": 4,  "rpm": 8200,  "throttle": 2,  "speed": 90,  "gear": 2 },
+    { "section": "Prima Variante Exit",   "durationTicks": 6,  "rpm": 11500, "throttle": 74, "speed": 185, "gear": 5 },
+    { "section": "Curva Grande",          "durationTicks": 8,  "rpm": 13800, "throttle": 88, "speed": 265, "gear": 7 },
+    { "section": "Lesmo 1 Brake",         "durationTicks": 4,  "rpm": 9100,  "throttle": 5,  "speed": 120, "gear": 3 },
+    { "section": "Lesmo 1 to Lesmo 2",   "durationTicks": 6,  "rpm": 12400, "throttle": 71, "speed": 210, "gear": 6 },
+    { "section": "Lesmo 2 Brake",         "durationTicks": 3,  "rpm": 8700,  "throttle": 3,  "speed": 105, "gear": 2 },
+    { "section": "Ascari Chicane",        "durationTicks": 8,  "rpm": 11200, "throttle": 67, "speed": 195, "gear": 5 },
+    { "section": "Parabolica Entry",      "durationTicks": 5,  "rpm": 9500,  "throttle": 10, "speed": 135, "gear": 3 },
+    { "section": "Parabolica Apex",       "durationTicks": 5,  "rpm": 11800, "throttle": 60, "speed": 195, "gear": 6 },
+    { "section": "Parabolica Exit",       "durationTicks": 11, "rpm": 14200, "throttle": 95, "speed": 308, "gear": 8 }
+  ],
+
+  "pitStopEvents": [
+    { "lap": 18, "driverCode": "NOR", "message": "Norris is boxing. Predict tire!", "windowSeconds": 10 },
+    { "lap": 22, "driverCode": "VER", "message": "Verstappen box box box!",         "windowSeconds": 10 },
+    { "lap": 30, "driverCode": "LEC", "message": "Leclerc pitting — choose tire!",  "windowSeconds": 10 }
+  ]
+}
